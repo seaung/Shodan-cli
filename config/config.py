@@ -1,4 +1,4 @@
-i# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 
 class Configuration(object):
