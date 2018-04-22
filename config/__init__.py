@@ -16,7 +16,7 @@ def load_config():
         else:
             from .devlopment import DevlopmentConfiguration
             return DevlopmentConfiguration
-    except ImportError, e:
-        from .config import Config
-        return Config
+    except ImportError as e:
+        from .config import Configuration
+        return Configuration
 
