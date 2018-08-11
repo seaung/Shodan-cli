@@ -45,6 +45,7 @@ Flask-Babel = "==0.11.2"
 Flask-RESTful = "==0.3.6"
 Flask-SQLAlchemy = "==2.3.2"
 WTForms = "==2.1"
+shodan = "*"
 
 [requires]
 python_version = "3.6"
