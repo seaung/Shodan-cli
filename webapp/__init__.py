@@ -1,5 +1,4 @@
 from flask import Flask
-from webapp.web import web
 
 def create_app():
     app = Flask(__name__)
@@ -8,6 +7,7 @@ def create_app():
 
 
 def register_app(app):
+    from webapp.web import web
 
     app.register_blueprint(web, url_prefix='/web')
 

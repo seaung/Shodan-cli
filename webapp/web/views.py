@@ -1,3 +1,4 @@
+from flask import render_template
 from . import web
 from webapp.web.forms import SearchForm
 
@@ -8,4 +9,10 @@ from webapp.web.forms import SearchForm
 #    if request.method == 'POST':
 #        if form.validate():
 #            keyword = form.keywod.data
+#
+
+
+#@web.route('/index')
+#def index():
+#    return render_template('index.html')
 #
