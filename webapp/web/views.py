@@ -1,18 +1,19 @@
-from flask import render_template
+from flask import render_template, request
 from . import web
 from webapp.web.forms import SearchForm
 
 
-#@web.route('/search/', methods=['POST', 'GET'])
+@web.route('/index')
+def index():
+    return render_template('index.html')
+
+
+#@web.route('/index', methods=['GET', 'POST'])
 #def search():
-#    form = SearchForm(request.form)
-#    if request.method == 'POST':
-#        if form.validate():
-#            keyword = form.keywod.data
+#    form = SearchForm(request.data)
 #
-
-
-#@web.route('/index')
-#def index():
-#    return render_template('index.html')
-#
+#    if request.method == 'GET':
+#        pass
+#    elif request.method == 'POST':
+#        pass
+#    return render('search.html')

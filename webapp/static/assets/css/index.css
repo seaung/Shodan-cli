@@ -39,7 +39,7 @@ body {
 	border: 0;
 	display: block;
 	float: left;
-	background-image: url('../images/search-icon.png');
+   /*	background-image: url('../images/search-icon.png');*/
 	width: 60px;
 	height: 29px;
 }
