@@ -1,6 +1,7 @@
 from flask import render_template, request
 from . import web
 from webapp.web.forms import SearchForm
+from webapp.api import ShodanApi 
 
 
 @web.route('/index')

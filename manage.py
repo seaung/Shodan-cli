@@ -3,11 +3,6 @@ from webapp import create_app
 
 app = create_app()
 
-'''
-@manager.shell
-def make_shell_context():
-    return dict(app=app)
-'''
 
 def _make_context():
     return dict(app=app)
