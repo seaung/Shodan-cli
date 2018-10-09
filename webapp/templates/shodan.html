@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+		<head>
+				<meta charset="utf-8"/>
+				<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<title>Start Search with Shodan flask web application</title>
+				<script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery-3.3.1.min.js') }}"></script>
+				<link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" />
+				<link href="{{ url_for('static', filename='assets/css/shodan.css') }}" />
+		</head>
+		<body>
+				<div class="container-fluid">
+						<h2 class="display-4">Start search Host with shodan.</h2>
+						<form action="{{ url_for('web.index') }}" method="POST">
+								<div class="form-group">
+										<input class="form-control" autocomplie="off" />
+										<button class="btn btn-primary">search</button>
+								</div>
+						</form>
+				</div>
+		</body>
+</html>
