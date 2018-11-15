@@ -1,7 +1,7 @@
 from flask import render_template, request, flash
 from . import web
 from webapp.web.forms import SearchForm
-from webapp.api.api import ShodanApi 
+from webapp.api.api import ShodanApi
 
 
 @web.route('/index')
@@ -13,14 +13,13 @@ def index():
 def search():
     form = SearchForm(request.form)
 
-    if request.method == "POST":
-        if form.validate():
-            keyword = form.keyword.data
+    if request.method == "POST" and form.validate():
+        keyword = form.keyword.data
 
-            return render_template("result.html", data=data)
-
+        return redirect(url_for("host_lists"))
     return render_template("shodan.html", form=form)
 
 
-
-
+@web.route("/hosts", methods=["GET"])
+def host_lists():
+    return render_template("result.html")

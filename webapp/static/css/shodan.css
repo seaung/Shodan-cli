@@ -1,0 +1,25 @@
+body {
+		height: 100%;
+		width: 100%;
+		background: url('../images/bg.jpg') no-repeat;
+		background-size: cover;
+		background-position: center 0;
+		background-color: #00071c;
+		background-attachment: fixed;
+		min-width: 960px;
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+}
+
+.fontColor {
+		color: #fff;
+}
+
+.search-input {
+		padding: 0 15px;
+		border: 1px solid #14243d;
+		outline: none;
+		font-size: 14px;
+		text-align: center;
+}
