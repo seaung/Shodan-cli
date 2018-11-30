@@ -9,36 +9,22 @@ class ShodanApi(object):
         self.api = shodan.Shodan(self.api_key)
 
     @staticmethod
-    def is_host_or_ip(keyword):
-        if is_ip(keyword):
-            self._search_host_by_ip(keyword)
-        else:
-            self._search_host_by_name(keyword)
-
-    def _search_host_by_name(self, keyword):
+    def search_by_ip(keyword):
         try:
-            results = []
-            hosts = self.api.search(keyword)
-            total = hosts['total']
-            results.append(total)
-
-            for host in hosts['matches']:
-                results.append({"IP": host["ip_str"], "data": host["data"]})
+            results = self.api.host(keyword)
             return results
-        except shodan.APIError:
-            data = "Not Found"
-            return data
+        except shodan.APIError as e:
+            print("api error")
+            return None
 
-    def _search_host_by_ip(self, keywrod):
+    @staticmethod
+    def search_by_host(keyword):
         try:
-            results = []
-            hosts = self.api.host(keyword)
-            results.append({"IP": hosts["ip_str"], "Organization": hosts.get("org", "n/a"), "system": hosts.get("os", "n/a")})
-
-            for item in hosts["data"]:
-                results.append({"PORT": item["port"], "BANNER": item["data"]})
-            return results
-        except shodan.APIError:
-            data = "Not Found."
-            return data
-
+            results = self.api.search(keyword)
+            matches = []
+            for result in results['matches']:
+                matches.append(result)
+            return matches
+        except shodan.APIError as e:
+            print("")
+            return None

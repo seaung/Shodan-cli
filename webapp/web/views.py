@@ -2,6 +2,7 @@ from flask import render_template, request, flash
 from . import web
 from webapp.web.forms import SearchForm
 from webapp.api.api import ShodanApi
+from webapp.utils.ip import is_ip
 
 
 @web.route('/index')
@@ -13,28 +14,11 @@ def index():
 def search():
     form = SearchForm(request.form)
 
-    matchers = MatchersCollection()
-
-    if request.method == "POST" and form.validate():
+    if form.validate():
         keyword = form.keyword.data.strip()
-        
-        ip_or_keyword = is_ip_or_keyword(keyword)
-
-        if ip_or_keyword == 'ip_address':
-            search_collection = SearchCollection()
-            search_collection.search_by_ip(keyword)
+        if is_ip(keyword):
+            results = ShodanApi.search_by_ip(keyword)
         else:
-            search_collection = SearchCollection()
-            search_collection.search_by_host(keyword)
-        matchers.fill(search_collection, keyword)
-        return render_template("result.html", data=matchers)
-    else:
-        flash("errors.")
+            results = ShodanApi.search_by_host(keyword)
 
-    return render_template("shodan.html", form=form)
-
-
-@web.route("/hosts", methods=["GET"])
-def host_lists():
-    return render_template("result.html")
-
+    return render_template('result'.html', form=form, data=results)
