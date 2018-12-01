@@ -19,6 +19,14 @@
 		</form>
 	  </div>
 	</nav>
+  <div class="container">
+    {% if data %}
+        {% for item in data %}
+           <p>{{ item }}</p>
+        {% endfor %}
+    {% elif data == None %}
+        <p>sorry! No relevant information.</p>
+    {% endif %}
+  </div>
   </body>
 </html>
-
