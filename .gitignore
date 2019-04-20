@@ -112,3 +112,6 @@ Pipfile.lock
 
 # run.py
 run.py
+
+# idea config file
+.idea/

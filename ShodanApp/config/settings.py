@@ -1,0 +1,9 @@
+HOST = '0.0.0.0'
+
+PORT = 8080
+
+DEBUG = True
+
+DEFAULT_METHODS = ['GET', 'POST']
+
+METHOD = ['GET', ]
