@@ -7,7 +7,7 @@ class Runner(object):
 
     def start(self, options):
         if options.inf:
-            pass
+            self.shodan.info()
 
         if options.domain:
             self.shodan.search_host_from_ipaddress(options.domain)

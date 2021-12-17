@@ -5,7 +5,8 @@ import requests
 class Request(object):
     def __init__(self):
         self.headers = {
-                "user-agent": "shodan-angent"
+                "user-agent": "shodan-angent",
+                "content-type": "appliction/json"
         }
 
     def send_get(self, url):
@@ -32,6 +33,10 @@ class ShodanClient(object):
         self.api_key = os.getenv("SHODAN_API_KEY")
         self.base_url = "https://api.shodan.io"
         self.request = Request()
+
+    def info(self):
+        target_url = f"{self.base_url}/api-info?key={self.api_key}"
+        return self.request.send_get(target_url)
 
     def search_host_from_ipaddress(self, ipaddress):
         target_url = f"{self.base_url}/shodan/host/{ipaddress}?key={self.api_key}"
